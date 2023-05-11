@@ -17,10 +17,4 @@ public class EnemyAI : MonoBehaviour
         Vector2 direction = (player.position - transform.position).normalized;
         rb.velocity = direction * speed;
     }
-    //give the enemy a red trail
-void OnDrawGizmosSelected()
-	{
-		Gizmos.color = Color.red;
-		Gizmos.DrawWireSphere(transform.position, 3f);
-	}
 }
