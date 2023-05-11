@@ -1,19 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
-    public GameObject player;
+    public Transform player;
     public float speed;
 
-    private float distance;
+    private Rigidbody2D rb;
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
 
     void Update()
     {
-        distance = Vector2.Distance(transform.position, player.transform.position);
-        Vector2 direction = (player.transform.position - transform.position).normalized;
-        transform.position = transform.position + (Vector3)direction * speed * Time.deltaTime;
+        Vector2 direction = (player.position - transform.position).normalized;
+        rb.velocity = direction * speed;
     }
-
+    //give the enemy a red trail
+void OnDrawGizmosSelected()
+	{
+		Gizmos.color = Color.red;
+		Gizmos.DrawWireSphere(transform.position, 3f);
+	}
 }
