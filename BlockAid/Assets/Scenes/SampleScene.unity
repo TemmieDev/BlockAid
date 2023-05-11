@@ -900,3 +900,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1644636064}
   speed: 5
+  contactRadius: 0.5
+  avoidanceRadius: 0.5
+  avoidanceTime: 2
