@@ -9,6 +9,7 @@ size = Vector2(132, 124)
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(517, 158)
 script = ExtResource("1_ijqab")
+player_speed = 800
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
