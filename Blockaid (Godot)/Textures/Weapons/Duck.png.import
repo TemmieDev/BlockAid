@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bocaadk5jj42j"
-path="res://.godot/imported/Cobble Stone.png-94aef50d76c50cffb202a597259e3d8e.ctex"
+uid="uid://srqkyxxuoxi"
+path="res://.godot/imported/Duck.png-a036a611ec194e18b830fa733355d894.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Environment/Cobble Stone.png"
-dest_files=["res://.godot/imported/Cobble Stone.png-94aef50d76c50cffb202a597259e3d8e.ctex"]
+source_file="res://Textures/Weapons/Duck.png"
+dest_files=["res://.godot/imported/Duck.png-a036a611ec194e18b830fa733355d894.ctex"]
 
 [params]
 

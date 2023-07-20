@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b3dbfemkl5ukh"
-path="res://.godot/imported/wooddd.png-12d4267b4bba3c5a0c50701ad181ac7e.ctex"
+path="res://.godot/imported/wooddd.png-a255840c87731c5c3d665e0cf09edc98.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/wooddd.png"
-dest_files=["res://.godot/imported/wooddd.png-12d4267b4bba3c5a0c50701ad181ac7e.ctex"]
+source_file="res://Textures/Environment/wooddd.png"
+dest_files=["res://.godot/imported/wooddd.png-a255840c87731c5c3d665e0cf09edc98.ctex"]
 
 [params]
 

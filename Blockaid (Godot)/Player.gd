@@ -16,10 +16,20 @@ func _physics_process(delta):
 		Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 	)
 	direction = direction.normalized()
-
+	
+	
+	
 	
 	velocity = velocity.lerp(direction * player_speed, 0.1)
 	velocity *= 1.0 - (friction * delta)
 	
 	
 	move_and_slide()
+# Dash
+func _process(delta):
+	var velocity = Vector2.ZERO
+	if Input.is_action_pressed("dash"):
+		
+		player_speed *= 2
+		
+		

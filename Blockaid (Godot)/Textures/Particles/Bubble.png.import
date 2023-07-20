@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bocaadk5jj42j"
-path="res://.godot/imported/Cobble Stone.png-94aef50d76c50cffb202a597259e3d8e.ctex"
+uid="uid://csm6xxo708jul"
+path="res://.godot/imported/Bubble.png-6645f440592abaa8b43b7b1cb2160c03.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Environment/Cobble Stone.png"
-dest_files=["res://.godot/imported/Cobble Stone.png-94aef50d76c50cffb202a597259e3d8e.ctex"]
+source_file="res://Textures/Particles/Bubble.png"
+dest_files=["res://.godot/imported/Bubble.png-6645f440592abaa8b43b7b1cb2160c03.ctex"]
 
 [params]
 
