@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var player_speed = 500
 @export var friction = 0.5
 @export var dash_speed = 2
+@export var dash_cooldown = 5
 
 var dash_duration = 0.5
 var dash_timer = 0
@@ -32,13 +33,18 @@ func _physics_process(delta):
 
 # Dash
 func _process(delta):
-	if Input.is_action_pressed("dash") and dash_timer <= 0:
+	dash_cooldown -= delta
+	if Input.is_action_pressed("dash") and dash_timer <= 0 and dash_cooldown <= 0:
 		dash_timer = dash_duration
 		player_speed *= dash_speed
+		dash_cooldown = 5
 	
 	if dash_timer > 0:
 		dash_timer -= delta
 		if dash_timer <= 0:
 			player_speed /= dash_speed
+	
+	
+
 		
 		
