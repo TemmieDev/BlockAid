@@ -32,6 +32,7 @@ position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_ok4pp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
 texture = ExtResource("2_38ly7")
 
 [node name="DashParticle" type="GPUParticles2D" parent="."]

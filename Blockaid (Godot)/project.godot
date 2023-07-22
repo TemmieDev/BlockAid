@@ -16,6 +16,7 @@ config/features=PackedStringArray("4.1", "Forward Plus")
 boot_splash/image="res://erm.png"
 boot_splash/fullsize=false
 config/icon="res://erm.png"
+config/windows_native_icon="res://erm.ico"
 
 [display]
 
@@ -28,6 +29,10 @@ window/stretch/mode="canvas_items"
 [dotnet]
 
 project/assembly_name="Blockaid (godot)"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_icon/plugin.cfg")
 
 [input]
 

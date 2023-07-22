@@ -23,7 +23,7 @@ func _physics_process(delta):
 	)
 	direction = direction.normalized()
 	
-	
+	var is_player_moving = direction.length() > 0
 	
 	
 	velocity = velocity.lerp(direction * player_speed, 0.1)
@@ -35,12 +35,14 @@ func _physics_process(delta):
 # Dash
 	dash_cooldown -= delta
 	if Input.is_action_pressed("dash") and dash_timer <= 0 and dash_cooldown <= 0:
+		if not is_player_moving:
+			velocity = mousePos - position
+			velocity = velocity.normalized() * player_speed * dash_speed
 		dash_timer = dash_duration
 		player_speed *= dash_speed
-		velocity = mousePos - position
-		velocity = velocity.normalized() * player_speed * dash_speed
 		dash_cooldown = 5
 		$DashParticle.emitting = true
+		
 		
 		
 	
