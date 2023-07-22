@@ -1,10 +1,10 @@
 extends CharacterBody2D
 @export var rotation_speed = 0.08
-@export var player_speed = 500
+@export var player_speed = 350
 @export var friction = 0.5
-@export var dash_speed = 2
+@export var dash_speed = 2.5
 @export var dash_cooldown = 0
-
+var playermoving = false
 
 var dash_duration = 0.5
 var dash_timer = 0
@@ -25,6 +25,10 @@ func _physics_process(delta):
 	
 	var is_player_moving = direction.length() > 0
 	
+	if is_player_moving:
+		playermoving = true
+	else:
+		playermoving = false
 	
 	velocity = velocity.lerp(direction * player_speed, 0.1)
 	velocity *= 1.0 - (friction * delta)
@@ -34,24 +38,18 @@ func _physics_process(delta):
 
 # Dash
 	dash_cooldown -= delta
-	if Input.is_action_pressed("dash") and dash_timer <= 0 and dash_cooldown <= 0:
-		if not is_player_moving:
-			velocity = mousePos - position
-			velocity = velocity.normalized() * player_speed * dash_speed
+	if Input.is_action_pressed("dash") and dash_timer <= 0 and dash_cooldown <= 0 and is_player_moving:
 		dash_timer = dash_duration
 		player_speed *= dash_speed
 		dash_cooldown = 5
-		$DashParticle.emitting = true
+		if $DashParticle:
+			$DashParticle.emitting = true
 		
 		
 		
-	
 	if dash_timer > 0:
 		dash_timer -= delta
 		if dash_timer <= 0:
 			player_speed /= dash_speed
 	
 	
-
-		
-		

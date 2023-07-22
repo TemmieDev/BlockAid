@@ -18,6 +18,10 @@ boot_splash/fullsize=false
 config/icon="res://erm.png"
 config/windows_native_icon="res://erm.ico"
 
+[autoload]
+
+Player="*res://Player.gd"
+
 [display]
 
 window/size/viewport_width=1920
