@@ -3,7 +3,8 @@ extends CharacterBody2D
 @export var player_speed = 500
 @export var friction = 0.5
 @export var dash_speed = 2
-@export var dash_cooldown = 5
+@export var dash_cooldown = 0
+
 
 var dash_duration = 0.5
 var dash_timer = 0
@@ -32,12 +33,16 @@ func _physics_process(delta):
 	move_and_slide()
 
 # Dash
-func _process(delta):
 	dash_cooldown -= delta
 	if Input.is_action_pressed("dash") and dash_timer <= 0 and dash_cooldown <= 0:
 		dash_timer = dash_duration
 		player_speed *= dash_speed
+		velocity = mousePos - position
+		velocity = velocity.normalized() * player_speed * dash_speed
 		dash_cooldown = 5
+		$DashParticle.emitting = true
+		
+		
 	
 	if dash_timer > 0:
 		dash_timer -= delta
