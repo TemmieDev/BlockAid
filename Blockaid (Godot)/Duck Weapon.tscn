@@ -27,3 +27,6 @@ process_material = SubResource("ParticleProcessMaterial_54tvt")
 texture = ExtResource("2_2rkl1")
 lifetime = 0.5
 fixed_fps = 60
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(11, -3)

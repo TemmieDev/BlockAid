@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c40xika27r2kp"]
+[gd_scene load_steps=7 format=3 uid="uid://c40xika27r2kp"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_ijqab"]
 [ext_resource type="Texture2D" uid="uid://bcsbhnhn7036m" path="res://Textures/Player/mc.png" id="2_38ly7"]
+[ext_resource type="Script" path="res://Rotation.gd" id="3_qqa0t"]
+[ext_resource type="Texture2D" uid="uid://srqkyxxuoxi" path="res://Textures/Weapons/Duck.png" id="4_4amo1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ok4pp"]
 size = Vector2(37, 35)
@@ -25,7 +27,6 @@ color = Color(0.00784314, 1, 1, 1)
 position = Vector2(729, 289)
 script = ExtResource("1_ijqab")
 player_speed = 800
-metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -0.5)
@@ -41,3 +42,10 @@ amount = 40
 process_material = SubResource("ParticleProcessMaterial_fm4fx")
 one_shot = true
 fixed_fps = 60
+
+[node name="Rotation" type="Node2D" parent="."]
+script = ExtResource("3_qqa0t")
+
+[node name="Sprite2D" type="Sprite2D" parent="Rotation"]
+position = Vector2(30, 0)
+texture = ExtResource("4_4amo1")

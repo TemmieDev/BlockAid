@@ -1,5 +1,5 @@
 extends CharacterBody2D
-@export var rotation_speed = 0.08
+
 @export var player_speed = 350
 @export var friction = 0.5
 @export var dash_speed = 2.5
@@ -8,13 +8,11 @@ var playermoving = false
 
 var dash_duration = 0.5
 var dash_timer = 0
-var mousePos = Vector2()
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	mousePos = get_global_mouse_position()
-	var targetDir =get_angle_to(mousePos - position.normalized())
-	rotation += sin(targetDir * rotation_speed)
+
 	
 	# Directional Movement
 	var direction = Vector2(
