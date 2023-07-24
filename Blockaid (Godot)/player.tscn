@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Player.gd" id="1_ijqab"]
 [ext_resource type="Texture2D" uid="uid://bcsbhnhn7036m" path="res://Textures/Player/mc.png" id="2_38ly7"]
 [ext_resource type="Script" path="res://Rotation.gd" id="3_qqa0t"]
-[ext_resource type="Texture2D" uid="uid://srqkyxxuoxi" path="res://Textures/Weapons/Duck.png" id="4_4amo1"]
+[ext_resource type="PackedScene" uid="uid://6g8jwohx3pda" path="res://Duck Weapon.tscn" id="4_5cfak"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ok4pp"]
 size = Vector2(37, 35)
@@ -12,10 +12,10 @@ size = Vector2(37, 35)
 emission_shape = 3
 emission_box_extents = Vector3(1, 13, 1)
 particle_flag_disable_z = true
-direction = Vector3(-1, 0, 0)
+direction = Vector3(0, 0, 0)
 spread = 37.42
 gravity = Vector3(0, 0, 0)
-initial_velocity_min = 294.74
+initial_velocity_min = 252.98
 initial_velocity_max = 452.63
 orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
@@ -24,7 +24,6 @@ scale_max = 5.0
 color = Color(0.00784314, 1, 1, 1)
 
 [node name="Player" type="CharacterBody2D"]
-position = Vector2(729, 289)
 script = ExtResource("1_ijqab")
 player_speed = 800
 
@@ -43,9 +42,10 @@ process_material = SubResource("ParticleProcessMaterial_fm4fx")
 one_shot = true
 fixed_fps = 60
 
-[node name="Rotation" type="Node2D" parent="."]
+[node name="WeaponRotate" type="Node2D" parent="."]
 script = ExtResource("3_qqa0t")
 
-[node name="Sprite2D" type="Sprite2D" parent="Rotation"]
-position = Vector2(30, 0)
-texture = ExtResource("4_4amo1")
+[node name="WeaponManager" type="Node2D" parent="WeaponRotate"]
+position = Vector2(34, 0)
+
+[node name="Duck" parent="WeaponRotate/WeaponManager" instance=ExtResource("4_5cfak")]
