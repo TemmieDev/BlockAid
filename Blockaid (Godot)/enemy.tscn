@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://dqf6jr4onm40y"]
+
+[ext_resource type="Script" path="res://enemy.gd" id="1_pcxn8"]
+[ext_resource type="Texture2D" uid="uid://bcsbhnhn7036m" path="res://Textures/Player/mc.png" id="2_l3vnv"]
+[ext_resource type="Script" path="res://Rotation.gd" id="3_u3p8h"]
+[ext_resource type="PackedScene" uid="uid://6g8jwohx3pda" path="res://Duck Weapon.tscn" id="4_aqfxi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ok4pp"]
+size = Vector2(37, 35)
+
+[node name="Enemy" type="CharacterBody2D"]
+z_index = 1
+position = Vector2(814, 406)
+script = ExtResource("1_pcxn8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_ok4pp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+texture = ExtResource("2_l3vnv")
+
+[node name="WeaponRotate" type="Node2D" parent="."]
+script = ExtResource("3_u3p8h")
+
+[node name="WeaponManager" type="Node2D" parent="WeaponRotate"]
+position = Vector2(34, 0)
+
+[node name="Duck" parent="WeaponRotate/WeaponManager" instance=ExtResource("4_aqfxi")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.5, 1.5)
+position_smoothing_enabled = true
