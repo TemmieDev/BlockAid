@@ -3,7 +3,7 @@ extends Node2D
 
 signal player_fired_bullet(bullet)
 
-var bullet = preload("res://bubble.tscn")
+var bullet = preload("res://bullet.tscn")
 
 @onready var end_of_gun = $EndofWeapon
 
