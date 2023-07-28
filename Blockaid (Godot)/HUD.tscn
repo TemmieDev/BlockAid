@@ -28,10 +28,10 @@ script = ExtResource("1_5kby7")
 
 [node name="DashCooldown" type="Label" parent="."]
 z_index = 1
-offset_left = 1563.0
-offset_top = 930.0
-offset_right = 1671.0
-offset_bottom = 1038.0
+offset_left = 1561.0
+offset_top = 935.0
+offset_right = 1669.0
+offset_bottom = 1043.0
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 50
 horizontal_alignment = 1

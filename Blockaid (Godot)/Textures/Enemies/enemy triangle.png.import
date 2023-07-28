@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxio3rntm8yrj"
-path="res://.godot/imported/enemy triangle.png-f3704abae3c582e0c819c9788d455d1a.ctex"
+uid="uid://brmmlj5q0w46p"
+path="res://.godot/imported/enemy triangle.png-1c4a39cec390205a571d5c06a8e96305.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemy triangle.png"
-dest_files=["res://.godot/imported/enemy triangle.png-f3704abae3c582e0c819c9788d455d1a.ctex"]
+source_file="res://Textures/Enemies/enemy triangle.png"
+dest_files=["res://.godot/imported/enemy triangle.png-1c4a39cec390205a571d5c06a8e96305.ctex"]
 
 [params]
 
