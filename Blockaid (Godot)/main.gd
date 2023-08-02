@@ -1,7 +1,7 @@
 extends Node
 
-onready var bullet_manager = $BulletManager
-onready var player = $BulletManager
+@onready var bullet_manager = $BulletManager
+@onready var player = $BulletManager
 
-func_ready() -> void:
+func _ready() -> void:
 	player.connect
