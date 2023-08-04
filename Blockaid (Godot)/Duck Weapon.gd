@@ -10,3 +10,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func shoot():
 	var bullet_instance = bullet.instantiate()
 	add_child(bullet_instance)
+	bullet_instance.global_position = end_of_weapon.global_position
+	var target = get_global_mouse_position()
+	var direction_to_mouse = target - bullet_instance.global_position.direction_to(target).normalized()
+	bullet_instance.set_direction(direction_to_mouse)

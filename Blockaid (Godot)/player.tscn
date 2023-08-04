@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://c40xika27r2kp"]
+[gd_scene load_steps=6 format=3 uid="uid://c40xika27r2kp"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_ijqab"]
 [ext_resource type="Texture2D" uid="uid://bcsbhnhn7036m" path="res://Textures/Player/mc.png" id="2_38ly7"]
-[ext_resource type="Script" path="res://Rotation.gd" id="3_qqa0t"]
 [ext_resource type="PackedScene" uid="uid://6g8jwohx3pda" path="res://Duck Weapon.tscn" id="4_5cfak"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ok4pp"]
@@ -15,8 +14,6 @@ particle_flag_disable_z = true
 direction = Vector3(0, 0, 0)
 spread = 37.42
 gravity = Vector3(0, 0, 0)
-initial_velocity_min = 252.98
-initial_velocity_max = 452.63
 orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
 scale_min = 5.0
@@ -42,10 +39,7 @@ process_material = SubResource("ParticleProcessMaterial_fm4fx")
 one_shot = true
 fixed_fps = 60
 
-[node name="WeaponRotate" type="Node2D" parent="."]
-script = ExtResource("3_qqa0t")
-
-[node name="WeaponManager" type="Node2D" parent="WeaponRotate"]
+[node name="WeaponManager" type="Node2D" parent="."]
 position = Vector2(34, 0)
 
-[node name="Duck" parent="WeaponRotate/WeaponManager" instance=ExtResource("4_5cfak")]
+[node name="Duck" parent="WeaponManager" instance=ExtResource("4_5cfak")]

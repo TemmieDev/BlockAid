@@ -1,8 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://bemdvfvcmx8qc"]
+[gd_scene load_steps=12 format=3 uid="uid://bemdvfvcmx8qc"]
 
 [ext_resource type="PackedScene" uid="uid://c40xika27r2kp" path="res://player.tscn" id="1_e4ygb"]
 [ext_resource type="Script" path="res://main.gd" id="1_ju1s6"]
-[ext_resource type="PackedScene" uid="uid://dqf6jr4onm40y" path="res://enemy.tscn" id="1_lulfj"]
 [ext_resource type="Texture2D" uid="uid://bocaadk5jj42j" path="res://Textures/Environment/Cobble Stone.png" id="2_pnx2r"]
 [ext_resource type="Texture2D" uid="uid://b3dbfemkl5ukh" path="res://Textures/Environment/wooddd.png" id="3_sdv04"]
 [ext_resource type="PackedScene" uid="uid://c6u8s73qflabe" path="res://HUD.tscn" id="4_b1q5t"]
@@ -32,9 +31,6 @@ sources/3 = SubResource("TileSetAtlasSource_p76uy")
 
 [node name="Main" type="Node"]
 script = ExtResource("1_ju1s6")
-
-[node name="Enemy" parent="." instance=ExtResource("1_lulfj")]
-position = Vector2(1053, 393)
 
 [node name="Player" parent="." instance=ExtResource("1_e4ygb")]
 z_index = 1

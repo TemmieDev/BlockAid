@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+	
 @export var player_speed = 350
 @export var friction = 0.5
 @export var dash_speed = 2.5
