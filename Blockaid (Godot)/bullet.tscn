@@ -7,6 +7,7 @@
 radius = 12.0
 
 [node name="Bubble" type="Area2D"]
+rotation = 1.5708
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_56hc3")
 
@@ -15,3 +16,8 @@ shape = SubResource("CircleShape2D_bksap")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_yvcgo")
+
+[node name="KillTimer" type="Timer" parent="."]
+wait_time = 0.3
+
+[connection signal="timeout" from="KillTimer" to="." method="_on_kill_timer_timeout"]

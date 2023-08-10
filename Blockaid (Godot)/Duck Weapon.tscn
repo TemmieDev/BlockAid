@@ -12,3 +12,10 @@ texture = ExtResource("1_8x71g")
 
 [node name="EndofWeapon" type="Marker2D" parent="."]
 position = Vector2(15, -3)
+
+[node name="GunDirection" type="Marker2D" parent="."]
+position = Vector2(18, -3)
+
+[node name="AttackCooldown" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
