@@ -23,3 +23,12 @@ func set_direction(new_direction: Vector2) -> void:
 
 func _on_kill_timer_timeout():
 	queue_free()
+
+
+
+
+
+func _on_body_entered(body):
+	if body.has_method("handle.hit"):
+		body.handle_hit()
+		queue_free()

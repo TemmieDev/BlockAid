@@ -20,4 +20,5 @@ texture = ExtResource("1_yvcgo")
 [node name="KillTimer" type="Timer" parent="."]
 wait_time = 0.3
 
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="KillTimer" to="." method="_on_kill_timer_timeout"]

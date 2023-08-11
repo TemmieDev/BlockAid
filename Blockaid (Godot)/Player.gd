@@ -9,6 +9,7 @@ var playermoving = false
 var dash_duration = 0.5
 var dash_timer = 0
 
+var health: int = 100 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -51,3 +52,6 @@ func _physics_process(delta):
 			player_speed /= dash_speed
 	
 	
+func handle_hit():
+	health -= 20
+	print("player hit!", health)
