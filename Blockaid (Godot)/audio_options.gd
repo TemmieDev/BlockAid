@@ -14,7 +14,9 @@ func _on_music_value_changed(value):
 	volume(1, value)
 
 
-
-
 func _on_sfx_value_changed(value):
 	volume(2, value)
+
+
+func _on_back_pressed():
+	get_tree().change_scene_to_file("res://options.tscn")
