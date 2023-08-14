@@ -17,9 +17,7 @@ func _physics_process(delta: float) -> void:
 
 func set_direction(new_direction: Vector2) -> void:
 	direction = new_direction
-	rotation += direction.angle()
-	
-
+	rotation = direction.angle() # Set rotation directly without incrementing
 
 func _on_kill_timer_timeout():
 	queue_free()
@@ -27,6 +25,7 @@ func _on_kill_timer_timeout():
 
 
 func _on_body_entered(body):
-	if body.has_method("handle.hit"):
+	print("Bullet collided with:", body.name)
+	if body.has_method("handle_hit"):
 		body.handle_hit()
 		queue_free()
