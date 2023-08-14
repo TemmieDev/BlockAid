@@ -1,7 +1,7 @@
 extends Area2D
 class_name Bullet
 
-@export var speed = int(1000)
+@export var speed = int(300)
 
 @onready var kill_timer = $KillTimer
 
@@ -23,8 +23,6 @@ func set_direction(new_direction: Vector2) -> void:
 
 func _on_kill_timer_timeout():
 	queue_free()
-
-
 
 
 
