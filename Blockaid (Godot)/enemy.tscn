@@ -1,13 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqf6jr4onm40y"]
+[gd_scene load_steps=6 format=3 uid="uid://dqf6jr4onm40y"]
 
-[ext_resource type="Script" path="res://enemy.gd" id="1_pcxn8"]
+[ext_resource type="Script" path="res://ENEMY.gd" id="1_gniuo"]
 [ext_resource type="Texture2D" uid="uid://brmmlj5q0w46p" path="res://Textures/Enemies/enemy triangle.png" id="2_7p34t"]
+[ext_resource type="Script" path="res://AI.gd" id="3_4nxry"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n7q6y"]
 size = Vector2(34, 33)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_4k5vq"]
+radius = 486.864
+
 [node name="Enemy" type="CharacterBody2D"]
-script = ExtResource("1_pcxn8")
+script = ExtResource("1_gniuo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_7p34t")
@@ -15,3 +19,11 @@ texture = ExtResource("2_7p34t")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_n7q6y")
+
+[node name="AI" type="Node2D" parent="."]
+script = ExtResource("3_4nxry")
+
+[node name="PlayerDectectionZone" type="Area2D" parent="AI"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AI/PlayerDectectionZone"]
+shape = SubResource("CircleShape2D_4k5vq")
