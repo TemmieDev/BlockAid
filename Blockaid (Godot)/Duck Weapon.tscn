@@ -8,6 +8,9 @@ script = ExtResource("1_kg3yy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 1
+position = Vector2(4, -3)
+rotation = 1.5708
+scale = Vector2(1.09586, 1.09586)
 texture = ExtResource("1_8x71g")
 
 [node name="EndofWeapon" type="Marker2D" parent="."]
