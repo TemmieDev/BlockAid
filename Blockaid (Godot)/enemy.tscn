@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dqf6jr4onm40y"]
+[gd_scene load_steps=7 format=3 uid="uid://dqf6jr4onm40y"]
 
 [ext_resource type="Script" path="res://ENEMY.gd" id="1_gniuo"]
 [ext_resource type="Texture2D" uid="uid://brmmlj5q0w46p" path="res://Textures/Enemies/enemy triangle.png" id="2_7p34t"]
 [ext_resource type="Script" path="res://AI.gd" id="3_4nxry"]
+[ext_resource type="PackedScene" uid="uid://6g8jwohx3pda" path="res://Duck Weapon.tscn" id="4_v5pie"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n7q6y"]
 size = Vector2(34, 33)
@@ -25,5 +26,7 @@ script = ExtResource("3_4nxry")
 
 [node name="PlayerDectectionZone" type="Area2D" parent="AI"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AI/PlayerDectectionZone"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AI/PlayerDectectionZone" groups=["enemy"]]
 shape = SubResource("CircleShape2D_4k5vq")
+
+[node name="Weapon" parent="." instance=ExtResource("4_v5pie")]

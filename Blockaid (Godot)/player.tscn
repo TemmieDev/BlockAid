@@ -21,7 +21,7 @@ scale_min = 5.0
 scale_max = 5.0
 color = Color(0.00784314, 1, 1, 1)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_ijqab")
 player_speed = 800
 
@@ -40,7 +40,7 @@ process_material = SubResource("ParticleProcessMaterial_fm4fx")
 one_shot = true
 fixed_fps = 60
 
-[node name="WeaponManager" type="Node2D" parent="."]
+[node name="WeaponManager" type="Node2D" parent="." groups=["player"]]
 script = ExtResource("3_w23md")
 
 [node name="Duck" parent="WeaponManager" instance=ExtResource("4_5cfak")]

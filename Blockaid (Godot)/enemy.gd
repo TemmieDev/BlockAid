@@ -1,8 +1,14 @@
 extends CharacterBody2D
+class_name Weapon
+
 
 var health = int(100)
 
 @onready var ai = $AI
+@onready var weapon = $Weapon
+
+func _ready() -> void:
+	ai.set_weapon{weapon}
 
 func handle_hit():
 	health -= 20
