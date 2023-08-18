@@ -9,6 +9,7 @@ ENGAGE
 
 @onready var player_detection_zone = $PlayerDetectionZone
 var current_state = State.PATROL
+var actor = null
 var player: Player = null
 var weapon: Weapon = null
 
@@ -17,11 +18,16 @@ func _process(delta):
 		State.PATROL:
 			pass
 		State.ENGAGE:
-			pass
+			if player != null and weapon!= null:
+				actor.rotation = actor.global_position.direction_to(player.global_position).angle()
+				weapon.shoot()
+			else:
+				print("In the engage state but no weapon/player")
 		_:
-			print("error: found a state for our enemy that should not exist")
+			print("Error: found a state for our enemy that should not exist")
 
-func set_weapon(weapon: Weapon):
+func initalize(actor, weapon: Weapon):
+	self.actor = actor
 	self.weapon = weapon
 
 func set_state(new_state: State):

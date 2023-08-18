@@ -8,7 +8,7 @@ var health = int(100)
 @onready var weapon = $Weapon
 
 func _ready() -> void:
-	ai.set_weapon{weapon}
+	ai.initalize{self, weapon}
 
 func handle_hit():
 	health -= 20
