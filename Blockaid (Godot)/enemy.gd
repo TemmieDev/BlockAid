@@ -4,11 +4,13 @@ extends CharacterBody2D
 var health = int(100)
 @export var movement_speed = 50
 @onready var player = get_tree().get_first_node_in_group("player")
+var dead = false
 
 func handle_hit():
 	health -= 20
 	print("enemy hit! ", health)
 	if health <= 0:
+		dead = true
 		queue_free()
 
 func _physics_process(_delta):

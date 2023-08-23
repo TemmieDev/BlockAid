@@ -142,3 +142,20 @@ position = Vector2(123, 61)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_awgqp")
 animation = &"Health 4"
+
+[node name="Score" type="Label" parent="HUD"]
+offset_left = 642.0
+offset_top = 126.0
+offset_right = 776.0
+offset_bottom = 198.0
+theme_override_font_sizes/font_size = 50
+text = "Score:"
+
+[node name="ScoreNum" type="Label" parent="HUD"]
+offset_left = 804.0
+offset_top = 128.0
+offset_right = 938.0
+offset_bottom = 200.0
+theme_override_font_sizes/font_size = 50
+text = "0
+"
