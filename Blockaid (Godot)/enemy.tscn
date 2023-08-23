@@ -1,32 +1,25 @@
-[gd_scene load_steps=7 format=3 uid="uid://dqf6jr4onm40y"]
+[gd_scene load_steps=4 format=3 uid="uid://dqf6jr4onm40y"]
 
 [ext_resource type="Script" path="res://ENEMY.gd" id="1_gniuo"]
-[ext_resource type="Texture2D" uid="uid://brmmlj5q0w46p" path="res://Textures/Enemies/enemy triangle.png" id="2_7p34t"]
-[ext_resource type="Script" path="res://AI.gd" id="3_4nxry"]
-[ext_resource type="PackedScene" uid="uid://6g8jwohx3pda" path="res://Duck Weapon.tscn" id="4_v5pie"]
+[ext_resource type="Texture2D" uid="uid://d2aux4is0y2ss" path="res://Textures/Player/Alternative Player Skins/rubic.png" id="2_f3y6f"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_n7q6y"]
-size = Vector2(34, 33)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_4k5vq"]
-radius = 486.864
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0nqfi"]
+size = Vector2(42, 38)
 
 [node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_gniuo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_7p34t")
+position = Vector2(0, 14)
+texture = ExtResource("2_f3y6f")
+offset = Vector2(0, -14)
+
+[node name="Enemy Area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy Area"]
+shape = SubResource("RectangleShape2D_0nqfi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_n7q6y")
+shape = SubResource("RectangleShape2D_0nqfi")
 
-[node name="AI" type="Node2D" parent="."]
-script = ExtResource("3_4nxry")
-
-[node name="PlayerDectectionZone" type="Area2D" parent="AI"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AI/PlayerDectectionZone" groups=["enemy"]]
-shape = SubResource("CircleShape2D_4k5vq")
-
-[node name="Weapon" parent="." instance=ExtResource("4_v5pie")]
+[connection signal="body_entered" from="Enemy Area" to="." method="_on_enemy_area_body_entered"]

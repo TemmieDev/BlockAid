@@ -1,13 +1,13 @@
 [gd_scene load_steps=13 format=3 uid="uid://bemdvfvcmx8qc"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_ju1s6"]
-[ext_resource type="PackedScene" uid="uid://dqf6jr4onm40y" path="res://enemy.tscn" id="2_7ccmx"]
 [ext_resource type="PackedScene" uid="uid://c40xika27r2kp" path="res://player.tscn" id="3_lgm8v"]
 [ext_resource type="Texture2D" uid="uid://bocaadk5jj42j" path="res://Textures/Environment/Cobble Stone.png" id="4_betvc"]
 [ext_resource type="Texture2D" uid="uid://b3dbfemkl5ukh" path="res://Textures/Environment/wooddd.png" id="5_g0uby"]
 [ext_resource type="Texture2D" uid="uid://vb1sp71damlx" path="res://Textures/Environment/sand.png" id="6_u8iar"]
 [ext_resource type="PackedScene" uid="uid://c6u8s73qflabe" path="res://HUD.tscn" id="7_12fay"]
 [ext_resource type="Script" path="res://BulletManager.gd" id="8_l4r04"]
+[ext_resource type="PackedScene" uid="uid://dpr7yr37k7q0c" path="res://enemy_spawner.tscn" id="8_wyip2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_thtl4"]
 texture = ExtResource("4_betvc")
@@ -34,11 +34,8 @@ sources/3 = SubResource("TileSetAtlasSource_p76uy")
 process_mode = 1
 script = ExtResource("1_ju1s6")
 
-[node name="Enemy" parent="." instance=ExtResource("2_7ccmx")]
-position = Vector2(1048, 340)
-
 [node name="Player" parent="." instance=ExtResource("3_lgm8v")]
-position = Vector2(877, 399)
+position = Vector2(731, 399)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(1.5, 1.5)
@@ -55,3 +52,5 @@ layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 131072, 0, 0, 196608,
 
 [node name="BulletManager" type="Node2D" parent="."]
 script = ExtResource("8_l4r04")
+
+[node name="EnemySpawner" parent="." instance=ExtResource("8_wyip2")]

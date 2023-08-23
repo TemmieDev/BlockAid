@@ -22,6 +22,7 @@ scale_max = 5.0
 color = Color(0.00784314, 1, 1, 1)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 3
 script = ExtResource("1_ijqab")
 player_speed = 800
 
