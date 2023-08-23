@@ -9,7 +9,7 @@ var playermoving = false
 var dash_duration = 0.5
 var dash_timer = 0
 
-var health: int = 100 
+var health: int = 4 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -52,6 +52,15 @@ func _physics_process(delta):
 			player_speed /= dash_speed
 	
 	
-func handle_hit():
-	health -= 20
+func player_hit():
+	health -= 1
 	print("player hit!", health)
+	if health == 3:
+		$HUD/HealthSprite2.play("Health 3")
+	if health == 2:
+		$HUD/HealthSprite2.play("Health 2")
+	if health == 1:
+		$HUD/HealthSprite2.play("Health 1")
+	if health == 0:
+		$HUD/HealthSprite2.play("Dead")
+

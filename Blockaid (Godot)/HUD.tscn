@@ -1,8 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://c6u8s73qflabe"]
+[gd_scene load_steps=11 format=3 uid="uid://c6u8s73qflabe"]
 
 [ext_resource type="Script" path="res://HUD.gd" id="1_5kby7"]
 [ext_resource type="Texture2D" uid="uid://dgpqrc2oyl0rr" path="res://Textures/Ability CDs/dash.png" id="2_h1ajo"]
 [ext_resource type="Texture2D" uid="uid://b1ll81vutd5mb" path="res://Textures/Ability CDs/dash grey.png" id="3_xk7s5"]
+[ext_resource type="Texture2D" uid="uid://cquhiexqatkri" path="res://Textures/Player/Health/Heart 4.png" id="4_x2f62"]
+[ext_resource type="Texture2D" uid="uid://cdn2v2dwkp1n0" path="res://Textures/Player/Health/Heart 3.png" id="5_w1bfo"]
+[ext_resource type="Texture2D" uid="uid://xhe5xoe23q5w" path="res://Textures/Player/Health/Heart 2.png" id="6_6rk55"]
+[ext_resource type="Texture2D" uid="uid://cyb7nwms5hgu0" path="res://Textures/Player/Health/Heart 1.png" id="7_mm5ee"]
+[ext_resource type="Texture2D" uid="uid://bffbxmo3k8aps" path="res://Textures/Player/Health/Heart 0.png" id="8_kud3d"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dlitg"]
 animations = [{
@@ -23,6 +28,49 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_naye4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_x2f62")
+}],
+"loop": true,
+"name": &"Dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_w1bfo")
+}],
+"loop": true,
+"name": &"Health 1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_6rk55")
+}],
+"loop": true,
+"name": &"Health 2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_mm5ee")
+}],
+"loop": true,
+"name": &"Health 3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_kud3d")
+}],
+"loop": true,
+"name": &"Health 4",
+"speed": 5.0
+}]
+
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_5kby7")
 
@@ -37,8 +85,14 @@ theme_override_font_sizes/font_size = 50
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="DashSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(1616, 990)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_dlitg")
 animation = &"dash"
+
+[node name="HealthSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(123, 61)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_naye4")
+animation = &"Health 4"

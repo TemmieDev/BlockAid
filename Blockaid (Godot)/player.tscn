@@ -1,9 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://c40xika27r2kp"]
+[gd_scene load_steps=17 format=3 uid="uid://c40xika27r2kp"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_ijqab"]
 [ext_resource type="Texture2D" uid="uid://bcsbhnhn7036m" path="res://Textures/Player/mc.png" id="2_38ly7"]
 [ext_resource type="Script" path="res://WeaponManager.gd" id="3_w23md"]
 [ext_resource type="PackedScene" uid="uid://6g8jwohx3pda" path="res://Duck Weapon.tscn" id="4_5cfak"]
+[ext_resource type="PackedScene" uid="uid://c6u8s73qflabe" path="res://HUD.tscn" id="5_1f021"]
+[ext_resource type="Texture2D" uid="uid://dgpqrc2oyl0rr" path="res://Textures/Ability CDs/dash.png" id="6_l8kb4"]
+[ext_resource type="Texture2D" uid="uid://b1ll81vutd5mb" path="res://Textures/Ability CDs/dash grey.png" id="7_2h6fl"]
+[ext_resource type="Texture2D" uid="uid://cquhiexqatkri" path="res://Textures/Player/Health/Heart 4.png" id="8_mujdc"]
+[ext_resource type="Texture2D" uid="uid://cdn2v2dwkp1n0" path="res://Textures/Player/Health/Heart 3.png" id="9_kkibl"]
+[ext_resource type="Texture2D" uid="uid://xhe5xoe23q5w" path="res://Textures/Player/Health/Heart 2.png" id="10_18cx5"]
+[ext_resource type="Texture2D" uid="uid://cyb7nwms5hgu0" path="res://Textures/Player/Health/Heart 1.png" id="11_44pqu"]
+[ext_resource type="Texture2D" uid="uid://bffbxmo3k8aps" path="res://Textures/Player/Health/Heart 0.png" id="12_6euhy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ok4pp"]
 size = Vector2(37, 35)
@@ -20,6 +28,68 @@ orbit_velocity_max = 0.0
 scale_min = 5.0
 scale_max = 5.0
 color = Color(0.00784314, 1, 1, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lch1x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_l8kb4")
+}],
+"loop": true,
+"name": &"dash",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_2h6fl")
+}],
+"loop": true,
+"name": &"dash_pressed",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_awgqp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_mujdc")
+}],
+"loop": true,
+"name": &"Dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_kkibl")
+}],
+"loop": true,
+"name": &"Health 1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_18cx5")
+}],
+"loop": true,
+"name": &"Health 2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_44pqu")
+}],
+"loop": true,
+"name": &"Health 3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_6euhy")
+}],
+"loop": true,
+"name": &"Health 4",
+"speed": 5.0
+}]
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 3
@@ -46,3 +116,29 @@ script = ExtResource("3_w23md")
 
 [node name="Duck" parent="WeaponManager" instance=ExtResource("4_5cfak")]
 position = Vector2(34, 0)
+
+[node name="HUD" parent="." instance=ExtResource("5_1f021")]
+
+[node name="DashCooldown2" type="Label" parent="HUD"]
+z_index = 1
+offset_left = 1561.0
+offset_top = 935.0
+offset_right = 1669.0
+offset_bottom = 1043.0
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="DashSprite2" type="AnimatedSprite2D" parent="HUD"]
+position = Vector2(1616, 990)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_lch1x")
+animation = &"dash"
+
+[node name="HealthSprite2" type="AnimatedSprite2D" parent="HUD"]
+position = Vector2(123, 61)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_awgqp")
+animation = &"Health 4"

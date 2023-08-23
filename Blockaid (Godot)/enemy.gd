@@ -17,5 +17,5 @@ func _physics_process(_delta):
 	move_and_slide()
 
 func _on_enemy_area_body_entered(body):
-	if body.has_method("handle_hit"):
-		body.handle_hit()
+	if body.has_method("player_hit"):
+		body.player_hit()
