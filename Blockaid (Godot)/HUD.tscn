@@ -1,19 +1,19 @@
 [gd_scene load_steps=11 format=3 uid="uid://c6u8s73qflabe"]
 
-[ext_resource type="Script" path="res://HUD.gd" id="1_5kby7"]
-[ext_resource type="Texture2D" uid="uid://dgpqrc2oyl0rr" path="res://Textures/Ability CDs/dash.png" id="2_h1ajo"]
-[ext_resource type="Texture2D" uid="uid://b1ll81vutd5mb" path="res://Textures/Ability CDs/dash grey.png" id="3_xk7s5"]
-[ext_resource type="Texture2D" uid="uid://cquhiexqatkri" path="res://Textures/Player/Health/Heart 4.png" id="4_x2f62"]
-[ext_resource type="Texture2D" uid="uid://cdn2v2dwkp1n0" path="res://Textures/Player/Health/Heart 3.png" id="5_w1bfo"]
-[ext_resource type="Texture2D" uid="uid://xhe5xoe23q5w" path="res://Textures/Player/Health/Heart 2.png" id="6_6rk55"]
-[ext_resource type="Texture2D" uid="uid://cyb7nwms5hgu0" path="res://Textures/Player/Health/Heart 1.png" id="7_mm5ee"]
-[ext_resource type="Texture2D" uid="uid://bffbxmo3k8aps" path="res://Textures/Player/Health/Heart 0.png" id="8_kud3d"]
+[ext_resource type="Script" path="res://HUD.gd" id="1_uoo6h"]
+[ext_resource type="Texture2D" uid="uid://dgpqrc2oyl0rr" path="res://Textures/Ability CDs/dash.png" id="2_bppks"]
+[ext_resource type="Texture2D" uid="uid://b1ll81vutd5mb" path="res://Textures/Ability CDs/dash grey.png" id="3_7eyno"]
+[ext_resource type="Texture2D" uid="uid://cquhiexqatkri" path="res://Textures/Player/Health/Heart 4.png" id="4_hyelr"]
+[ext_resource type="Texture2D" uid="uid://cdn2v2dwkp1n0" path="res://Textures/Player/Health/Heart 3.png" id="5_tmxjg"]
+[ext_resource type="Texture2D" uid="uid://xhe5xoe23q5w" path="res://Textures/Player/Health/Heart 2.png" id="6_4jvus"]
+[ext_resource type="Texture2D" uid="uid://cyb7nwms5hgu0" path="res://Textures/Player/Health/Heart 1.png" id="7_fisvd"]
+[ext_resource type="Texture2D" uid="uid://bffbxmo3k8aps" path="res://Textures/Player/Health/Heart 0.png" id="8_acvil"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_dlitg"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_84kvw"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_h1ajo")
+"texture": ExtResource("2_bppks")
 }],
 "loop": true,
 "name": &"dash",
@@ -21,18 +21,18 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_xk7s5")
+"texture": ExtResource("3_7eyno")
 }],
 "loop": true,
 "name": &"dash_pressed",
 "speed": 5.0
 }]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_naye4"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_p2gu3"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_x2f62")
+"texture": ExtResource("4_hyelr")
 }],
 "loop": true,
 "name": &"Dead",
@@ -40,7 +40,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_w1bfo")
+"texture": ExtResource("5_tmxjg")
 }],
 "loop": true,
 "name": &"Health 1",
@@ -48,7 +48,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_6rk55")
+"texture": ExtResource("6_4jvus")
 }],
 "loop": true,
 "name": &"Health 2",
@@ -56,7 +56,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("7_mm5ee")
+"texture": ExtResource("7_fisvd")
 }],
 "loop": true,
 "name": &"Health 3",
@@ -64,7 +64,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("8_kud3d")
+"texture": ExtResource("8_acvil")
 }],
 "loop": true,
 "name": &"Health 4",
@@ -72,7 +72,7 @@ animations = [{
 }]
 
 [node name="HUD" type="CanvasLayer"]
-script = ExtResource("1_5kby7")
+script = ExtResource("1_uoo6h")
 
 [node name="DashCooldown" type="Label" parent="."]
 z_index = 1
@@ -88,11 +88,33 @@ vertical_alignment = 1
 [node name="DashSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(1616, 990)
 scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_dlitg")
+sprite_frames = SubResource("SpriteFrames_84kvw")
 animation = &"dash"
 
 [node name="HealthSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(123, 61)
 scale = Vector2(5, 5)
-sprite_frames = SubResource("SpriteFrames_naye4")
+sprite_frames = SubResource("SpriteFrames_p2gu3")
 animation = &"Health 4"
+
+[node name="Score" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -177.5
+offset_top = 48.0
+offset_right = 177.5
+offset_bottom = 120.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "Time Survived:"
+metadata/_edit_group_ = true
+
+[node name="ScoreNum" type="Label" parent="Score"]
+offset_left = 361.0
+offset_top = 2.0
+offset_right = 495.0
+offset_bottom = 74.0
+theme_override_font_sizes/font_size = 50
+text = "0
+"

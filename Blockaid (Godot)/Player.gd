@@ -1,4 +1,6 @@
 extends CharacterBody2D
+
+signal hit
 	
 @export var player_speed = 350
 @export var friction = 0.5
@@ -8,8 +10,9 @@ var playermoving = false
 
 var dash_duration = 0.5
 var dash_timer = 0
+var immo = 0
 
-var health: int = 4 
+var health: int = 4
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -51,16 +54,17 @@ func _physics_process(delta):
 		if dash_timer <= 0:
 			player_speed /= dash_speed
 	
+	if immo >= 1.5:
+		$CollisionShape2D.disabled = true
+		immo -= delta
+	if immo <= 0:
+		$CollisionShape2D.disabled = false
+	
 	
 func player_hit():
 	health -= 1
+	immo = 1.5
 	print("player hit!", health)
-	if health == 3:
-		$HUD/HealthSprite2.play("Health 3")
-	if health == 2:
-		$HUD/HealthSprite2.play("Health 2")
-	if health == 1:
-		$HUD/HealthSprite2.play("Health 1")
-	if health == 0:
-		$HUD/HealthSprite2.play("Dead")
+	emit_signal("hit")
+
 
