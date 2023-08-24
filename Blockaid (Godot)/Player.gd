@@ -65,9 +65,12 @@ func player_hit():
 		if diesfx:
 			diesfx.play()
 		emit_signal("dead")
-		remove_child($Sprite2D)
+		$AnimatedSprite2D.hide()
 		remove_child($WeaponManager)
 		remove_child($PlayerColl)
 		hitpart.emitting = true
+	$AnimatedSprite2D.play("Hit")
+	await get_tree().create_timer(1.5).timeout
+	$AnimatedSprite2D.play("default")
 
 

@@ -1,8 +1,28 @@
-[gd_scene load_steps=6 format=3 uid="uid://dqf6jr4onm40y"]
+[gd_scene load_steps=9 format=3 uid="uid://dqf6jr4onm40y"]
 
 [ext_resource type="Script" path="res://ENEMY.gd" id="1_gniuo"]
 [ext_resource type="Texture2D" uid="uid://d2aux4is0y2ss" path="res://Textures/Player/Alternative Player Skins/rubic.png" id="2_f3y6f"]
+[ext_resource type="Texture2D" uid="uid://btj3a4w7x4bsx" path="res://Textures/white.png" id="2_ka62s"]
 [ext_resource type="AudioStream" uid="uid://osye15w2x541" path="res://Sounds/SFX/Explode.wav" id="3_7ccxm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_82gqp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ka62s")
+}],
+"loop": true,
+"name": &"Hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_f3y6f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0nqfi"]
 size = Vector2(42, 38)
@@ -10,13 +30,23 @@ size = Vector2(42, 38)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vo33e"]
 size = Vector2(32, 32)
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bdku2"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 81.0
+gravity = Vector3(0, 300, 0)
+initial_velocity_min = 150.0
+initial_velocity_max = 150.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 3.0
+scale_max = 3.0
+
 [node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_gniuo")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 14)
-texture = ExtResource("2_f3y6f")
-offset = Vector2(0, -14)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_82gqp")
 
 [node name="EnemyArea" type="Area2D" parent="."]
 
@@ -29,5 +59,12 @@ shape = SubResource("RectangleShape2D_vo33e")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_7ccxm")
 volume_db = 4.952
+
+[node name="DeathParticle" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_bdku2")
+lifetime = 0.5
+one_shot = true
 
 [connection signal="body_entered" from="EnemyArea" to="." method="_on_enemy_area_body_entered"]
