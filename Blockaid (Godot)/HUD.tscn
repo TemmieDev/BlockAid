@@ -111,6 +111,7 @@ text = "Time Survived:"
 metadata/_edit_group_ = true
 
 [node name="ScoreNum" type="Label" parent="Score"]
+layout_mode = 0
 offset_left = 361.0
 offset_top = 2.0
 offset_right = 495.0
@@ -118,3 +119,25 @@ offset_bottom = 74.0
 theme_override_font_sizes/font_size = 50
 text = "0
 "
+
+[node name="HighScore" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -140.0
+offset_top = 106.0
+offset_right = 217.0
+offset_bottom = 180.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "High Score: "
+metadata/_edit_group_ = true
+
+[node name="HighScoreNum" type="Label" parent="HighScore"]
+layout_mode = 0
+offset_left = 288.0
+offset_top = 4.0
+offset_right = 376.0
+offset_bottom = 76.0
+theme_override_font_sizes/font_size = 50
+text = "0"

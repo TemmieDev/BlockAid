@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 signal hit
+signal dead
 	
 @export var player_speed = 350
 @export var friction = 0.5
@@ -55,10 +56,10 @@ func _physics_process(delta):
 			player_speed /= dash_speed
 	
 	if immo >= 1.5:
-		$CollisionShape2D.disabled = true
+		pass
 		immo -= delta
 	if immo <= 0:
-		$CollisionShape2D.disabled = false
+		pass
 	
 	
 func player_hit():
@@ -66,5 +67,7 @@ func player_hit():
 	immo = 1.5
 	print("player hit!", health)
 	emit_signal("hit")
+	if health <= 0:
+		emit_signal("dead")
 
 
