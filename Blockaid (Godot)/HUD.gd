@@ -14,13 +14,16 @@ func _physics_process(delta):
 	else:
 		$DashCooldown.text = ''
 		$DashSprite.play('dash')
-	score += delta
-	$Score/ScoreNum.text = str(floor(score))
+	if health > 0:
+		score += delta
+		$Score/ScoreNum.text = str(floor(score))
 	if score > Save.highest_record:
 		Save.highest_record = score
 	$HighScore/HighScoreNum.text = str(floor(Save.highest_record))
 	
-
+func _input(event):
+	if event.is_action_pressed("ui_cancel"):
+		$PauseMenu.pause()
 	
 
 func _on_player_hit():

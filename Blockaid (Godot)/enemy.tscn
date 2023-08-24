@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dqf6jr4onm40y"]
+[gd_scene load_steps=6 format=3 uid="uid://dqf6jr4onm40y"]
 
 [ext_resource type="Script" path="res://ENEMY.gd" id="1_gniuo"]
 [ext_resource type="Texture2D" uid="uid://d2aux4is0y2ss" path="res://Textures/Player/Alternative Player Skins/rubic.png" id="2_f3y6f"]
+[ext_resource type="AudioStream" uid="uid://osye15w2x541" path="res://Sounds/SFX/Explode.wav" id="3_7ccxm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0nqfi"]
 size = Vector2(42, 38)
@@ -17,12 +18,16 @@ position = Vector2(0, 14)
 texture = ExtResource("2_f3y6f")
 offset = Vector2(0, -14)
 
-[node name="Enemy Area" type="Area2D" parent="."]
+[node name="EnemyArea" type="Area2D" parent="."]
 
-[node name="EnemyAreaCol" type="CollisionShape2D" parent="Enemy Area"]
+[node name="EnemyAreaCol" type="CollisionShape2D" parent="EnemyArea"]
 shape = SubResource("RectangleShape2D_0nqfi")
 
 [node name="EnemyCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_vo33e")
 
-[connection signal="body_entered" from="Enemy Area" to="." method="_on_enemy_area_body_entered"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_7ccxm")
+volume_db = 4.952
+
+[connection signal="body_entered" from="EnemyArea" to="." method="_on_enemy_area_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c6u8s73qflabe"]
+[gd_scene load_steps=14 format=3 uid="uid://c6u8s73qflabe"]
 
 [ext_resource type="Script" path="res://HUD.gd" id="1_uoo6h"]
 [ext_resource type="Texture2D" uid="uid://dgpqrc2oyl0rr" path="res://Textures/Ability CDs/dash.png" id="2_bppks"]
@@ -8,6 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://xhe5xoe23q5w" path="res://Textures/Player/Health/Heart 2.png" id="6_4jvus"]
 [ext_resource type="Texture2D" uid="uid://cyb7nwms5hgu0" path="res://Textures/Player/Health/Heart 1.png" id="7_fisvd"]
 [ext_resource type="Texture2D" uid="uid://bffbxmo3k8aps" path="res://Textures/Player/Health/Heart 0.png" id="8_acvil"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0q44k"]
+font_size = 25
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_84kvw"]
 animations = [{
@@ -71,8 +76,27 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="LabelSettings" id="LabelSettings_dbx63"]
+font_size = 50
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qolk1"]
+font_size = 50
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_uoo6h")
+
+[node name="Shift" type="Label" parent="."]
+offset_left = 1587.0
+offset_top = 1025.0
+offset_right = 1643.0
+offset_bottom = 1063.0
+theme_override_font_sizes/font_size = 25
+text = "Shift"
+label_settings = SubResource("LabelSettings_0q44k")
 
 [node name="DashCooldown" type="Label" parent="."]
 z_index = 1
@@ -108,6 +132,7 @@ offset_bottom = 120.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 50
 text = "Time Survived:"
+label_settings = SubResource("LabelSettings_dbx63")
 metadata/_edit_group_ = true
 
 [node name="ScoreNum" type="Label" parent="Score"]
@@ -119,6 +144,7 @@ offset_bottom = 74.0
 theme_override_font_sizes/font_size = 50
 text = "0
 "
+label_settings = SubResource("LabelSettings_dbx63")
 
 [node name="HighScore" type="Label" parent="."]
 anchors_preset = 5
@@ -131,6 +157,7 @@ offset_bottom = 180.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 50
 text = "High Score: "
+label_settings = SubResource("LabelSettings_qolk1")
 metadata/_edit_group_ = true
 
 [node name="HighScoreNum" type="Label" parent="HighScore"]
@@ -141,3 +168,4 @@ offset_right = 376.0
 offset_bottom = 76.0
 theme_override_font_sizes/font_size = 50
 text = "0"
+label_settings = SubResource("LabelSettings_qolk1")

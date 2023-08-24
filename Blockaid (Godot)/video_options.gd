@@ -2,6 +2,7 @@ extends Control
 
 @onready var display_options = $HBoxContainer/Display
 @onready var resolution_options = $HBoxContainer2/Resolution
+@onready var selectsfx = $AudioStreamPlayer2D
 
 func _ready():
 	display_items()
@@ -21,6 +22,8 @@ func resolution_items():
 	resolution_options.add_item('1280x720')
 
 func _on_back_pressed():
+	selectsfx.play()
+	await selectsfx.finished
 	get_tree().change_scene_to_file("res://options.tscn")
 
 

@@ -1,8 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://xc13637kkpl3"]
+[gd_scene load_steps=5 format=3 uid="uid://xc13637kkpl3"]
 
 [ext_resource type="Script" path="res://Menu.gd" id="1_60k2e"]
+[ext_resource type="AudioStream" uid="uid://c7wscal36uql5" path="res://Sounds/SFX/Select.wav" id="2_owa3c"]
+[ext_resource type="Texture2D" uid="uid://di4ojlxll6wq6" path="res://Textures/blockaid bg.png" id="3_t58ks"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7ggvs"]
 
 [node name="Menu" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -43,6 +48,17 @@ text = "Options"
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Quit"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_owa3c")
+bus = &"SFX"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.392157)
+z_index = -1
+material = SubResource("CanvasItemMaterial_7ggvs")
+position = Vector2(961, 531)
+texture = ExtResource("3_t58ks")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]

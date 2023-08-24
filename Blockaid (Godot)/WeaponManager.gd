@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var rotation_speed = 0.08
+@export var rotation_speed = 0.3
 var mousePos = Vector2()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

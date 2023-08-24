@@ -1,12 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://c40xika27r2kp"]
+[gd_scene load_steps=12 format=3 uid="uid://c40xika27r2kp"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_ijqab"]
 [ext_resource type="Texture2D" uid="uid://bcsbhnhn7036m" path="res://Textures/Player/mc.png" id="2_38ly7"]
+[ext_resource type="Script" path="res://PlayerColl.gd" id="2_anfpo"]
 [ext_resource type="Script" path="res://WeaponManager.gd" id="3_w23md"]
 [ext_resource type="PackedScene" uid="uid://6g8jwohx3pda" path="res://Duck Weapon.tscn" id="4_5cfak"]
+[ext_resource type="AudioStream" uid="uid://dxignq56aa8ye" path="res://Sounds/SFX/Dash.wav" id="5_yhtck"]
+[ext_resource type="AudioStream" uid="uid://13250rjhdjsp" path="res://Sounds/SFX/Hurt.wav" id="6_6g26j"]
+[ext_resource type="AudioStream" uid="uid://c4apaboxdx5ca" path="res://Sounds/SFX/Die.wav" id="8_7k24j"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ok4pp"]
-size = Vector2(37, 35)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d2vjc"]
+size = Vector2(32, 32)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fm4fx"]
 emission_shape = 3
@@ -21,14 +25,29 @@ scale_min = 5.0
 scale_max = 5.0
 color = Color(0.00784314, 1, 1, 1)
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6n8p7"]
+lifetime_randomness = 0.05
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 62.05
+flatness = 0.07
+gravity = Vector3(0, 1000, 0)
+initial_velocity_min = 300.0
+initial_velocity_max = 300.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 5.0
+scale_max = 5.0
+color = Color(0.572549, 1, 0.972549, 1)
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 3
 script = ExtResource("1_ijqab")
 player_speed = 800
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -0.5)
-shape = SubResource("RectangleShape2D_ok4pp")
+[node name="PlayerColl" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_d2vjc")
+script = ExtResource("2_anfpo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 1
@@ -46,3 +65,21 @@ script = ExtResource("3_w23md")
 
 [node name="Duck" parent="WeaponManager" instance=ExtResource("4_5cfak")]
 position = Vector2(34, 0)
+
+[node name="DashSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_yhtck")
+
+[node name="HitSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_6g26j")
+
+[node name="DieParticle" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_6n8p7")
+lifetime = 0.5
+one_shot = true
+
+[node name="DieSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_7k24j")
+
+[connection signal="hit" from="." to="PlayerColl" method="_on_player_hit"]
