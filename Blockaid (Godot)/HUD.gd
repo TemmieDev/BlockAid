@@ -36,6 +36,9 @@ func _on_player_hit():
 		$HealthSprite.play("Health 1")
 	if health == 0:
 		$HealthSprite.play("Dead")
+	$HitOverlay.visible = true
+	await get_tree().create_timer(1.5).timeout
+	$HitOverlay.visible = false
 
 
 func _on_player_dead():

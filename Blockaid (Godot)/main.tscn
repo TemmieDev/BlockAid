@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bemdvfvcmx8qc"]
+[gd_scene load_steps=28 format=3 uid="uid://bemdvfvcmx8qc"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_ju1s6"]
 [ext_resource type="Script" path="res://Camera2D.gd" id="3_1of2j"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://c1387qklm1uat" path="res://game_over_screen.tscn" id="11_m4qla"]
 [ext_resource type="PackedScene" uid="uid://cwvfw6db4r6ut" path="res://pause_menu.tscn" id="12_7oq8r"]
 [ext_resource type="AudioStream" uid="uid://p6a6hk33vh22" path="res://Sounds/Music/Red Doors 2.0 (GameClosure Edition).mp3" id="13_aousn"]
+[ext_resource type="PackedScene" uid="uid://cpi2k6c3i3q1r" path="res://hit_overlay.tscn" id="14_rq0n4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_thtl4"]
 texture = ExtResource("4_betvc")
@@ -113,6 +114,9 @@ process_mode = 3
 [node name="PauseMenu" parent="HUD" instance=ExtResource("12_7oq8r")]
 
 [node name="GameOverScreen" parent="HUD" instance=ExtResource("11_m4qla")]
+visible = false
+
+[node name="HitOverlay" parent="HUD" instance=ExtResource("14_rq0n4")]
 visible = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
