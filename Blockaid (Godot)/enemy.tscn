@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://dqf6jr4onm40y"]
 
 [ext_resource type="Script" path="res://ENEMY.gd" id="1_gniuo"]
-[ext_resource type="Texture2D" uid="uid://d2aux4is0y2ss" path="res://Textures/Player/Alternative Player Skins/rubic.png" id="2_f3y6f"]
 [ext_resource type="Texture2D" uid="uid://btj3a4w7x4bsx" path="res://Textures/white.png" id="2_ka62s"]
 [ext_resource type="AudioStream" uid="uid://osye15w2x541" path="res://Sounds/SFX/Explode.wav" id="3_7ccxm"]
+[ext_resource type="Texture2D" uid="uid://b4of07c0lquhs" path="res://Textures/Enemies/red.png" id="3_rd7vk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_82gqp"]
 animations = [{
@@ -17,7 +17,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_f3y6f")
+"texture": ExtResource("3_rd7vk")
 }],
 "loop": true,
 "name": &"default",
