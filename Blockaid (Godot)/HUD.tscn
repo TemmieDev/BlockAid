@@ -117,7 +117,6 @@ animation = &"dash"
 
 [node name="HealthSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(123, 61)
-scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_p2gu3")
 animation = &"Health 4"
 
