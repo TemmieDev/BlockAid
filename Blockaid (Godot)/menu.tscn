@@ -66,6 +66,7 @@ theme_override_font_sizes/font_size = 50
 text = "Quit"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(966, 517)
 stream = ExtResource("2_owa3c")
 bus = &"SFX"
 

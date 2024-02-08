@@ -11,7 +11,7 @@ signal player_fired_bullet(bullet, position, direction)
 func _physics_process(delta):
 	if Input.is_action_pressed("shoot"):
 		shoot()
-	
+
 func shoot():
 	if attack_cooldown.is_stopped():
 		var bullet_instance = bullet.instantiate()
@@ -19,5 +19,3 @@ func shoot():
 		emit_signal('player_fired_bullet', bullet_instance, end_of_weapon.global_position, direction)
 		attack_cooldown.start()
 		shootsfx.play()
-
-

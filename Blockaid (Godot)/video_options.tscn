@@ -91,6 +91,7 @@ text = "Back"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 process_mode = 3
+position = Vector2(955, 476)
 stream = ExtResource("2_uar08")
 bus = &"SFX"
 

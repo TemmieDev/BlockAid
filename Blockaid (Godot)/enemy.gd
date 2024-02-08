@@ -29,7 +29,7 @@ func handle_hit():
 	await get_tree().create_timer(0.1).timeout
 	$AnimatedSprite2D.play("default")
 
-		
+
 func _physics_process(_delta):
 	if health > 0:
 		var direction = global_position.direction_to(player.global_position)
